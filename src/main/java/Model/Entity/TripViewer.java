@@ -1,0 +1,64 @@
+package Model.Entity;
+
+import java.sql.Time;
+import java.util.Date;
+
+/**
+ * Created by Δενθρ on 13.09.2015.
+ */
+public class TripViewer {
+    private int id;
+    private String from;
+    private String to;
+    private Date departure;
+    private Date arrival;
+
+    public TripViewer(int id, String from, String to, Date departure, Date arrival) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+        this.departure = departure;
+        this.arrival = arrival;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFrom() {
+        return from;
+    }
+
+    public void setFrom(String from) {
+        this.from = from;
+    }
+
+    public String getTo() {
+        return to;
+    }
+
+
+    public void setTo(String to) {
+        this.to = to;
+    }
+
+    public Date getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(Date departure) {
+        this.departure = departure;
+    }
+
+    public Date getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(Date arrival) {
+        this.arrival = arrival;
+    }
+}
