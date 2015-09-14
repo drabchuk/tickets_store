@@ -11,7 +11,19 @@ public class TripViewer {
     private String from;
     private String to;
     private Date departure;
+    private Time departureTime;
     private Date arrival;
+    private Time arrivalTime;
+
+    public TripViewer(int id, String from, String to, Date departure, Time departureTime, Date arrival, Time arrivalTime) {
+        this.id = id;
+        this.from = from;
+        this.to = to;
+        this.departure = departure;
+        this.departureTime = departureTime;
+        this.arrival = arrival;
+        this.arrivalTime = arrivalTime;
+    }
 
     public TripViewer(int id, String from, String to, Date departure, Date arrival) {
         this.id = id;

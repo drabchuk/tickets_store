@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by Денис on 12.09.2015.
+ * Created by пїЅпїЅпїЅпїЅпїЅ on 12.09.2015.
  */
 public abstract class TripObserver {
     public static ArrayList<Trip> findTripsByCities(City fromCity, City toCity) {
@@ -83,7 +83,7 @@ public abstract class TripObserver {
         try {
             while (resultSet.next()) {
                 //trips.add(new Trip(resultSet.getInt("Id")));
-                tripViewers.add(new TripViewer(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDate(4), resultSet.getDate(5)));
+                tripViewers.add(new TripViewer(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getDate(4), resultSet.getTime(4), resultSet.getDate(5), resultSet.getTime(5)));
             }
         } catch (SQLException e) {
             e.printStackTrace();

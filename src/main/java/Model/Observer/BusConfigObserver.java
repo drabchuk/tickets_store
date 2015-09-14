@@ -20,12 +20,12 @@ public class BusConfigObserver {
         resultSet = dbWorker.executeQuery(query);
         try {
             while (resultSet.next()) {
-                cities.add(new City(resultSet.getString("name")).getName());
+                res.add(new SeatPlace(resultSet.getInt("seat"), resultSet.getInt("row"), resultSet.getInt("place")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return cities;
+        return res;
     }
 }
 
