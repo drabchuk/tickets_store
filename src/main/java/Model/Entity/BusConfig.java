@@ -5,8 +5,4 @@ package Model.Entity;
  */
 public class BusConfig {
     int[][] conf;
-
-    public BusConfig(int[][] conf) {
-        this.conf = conf;
-    }
 }

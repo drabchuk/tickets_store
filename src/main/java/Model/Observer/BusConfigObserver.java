@@ -11,8 +11,8 @@ import java.util.ArrayList;
 /**
  * Created by Δενθρ on 14.09.2015.
  */
-public class BusConfigObserver {
-    private ArrayList<SeatPlace> busConfig(int tripId) {
+public abstract class BusConfigObserver {
+    public static ArrayList<SeatPlace> busConfig(int tripId) {
         ArrayList<SeatPlace> res = new ArrayList<SeatPlace>();
         ResultSet resultSet = null;
         String query = "SELECT seat FROM bus_config WHERE trip = " + tripId;
@@ -26,17 +26,5 @@ public class BusConfigObserver {
             e.printStackTrace();
         }
         return res;
-    }
-}
-
-class SeatPlace {
-    int seat_num;
-    int row;
-    int place;
-
-    public SeatPlace(int seat_num, int row, int place) {
-        this.seat_num = seat_num;
-        this.row = row;
-        this.place = place;
     }
 }
