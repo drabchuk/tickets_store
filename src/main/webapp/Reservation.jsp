@@ -1,15 +1,22 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Денис
+  Date: 14.09.2015
+  Time: 2:51
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
-
+<!doctype html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Auto-Completion using AJAX</title>
+  <meta charset="windows-1251">
+  <title>Документ без названия</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <script type="text/javascript" src="javascript.js"></script>
 </head>
-<body onload="init()">
+
+<body>
 <div class="menu">
   <ul>
     <li><a href="Index.html">Главная</a></li>
@@ -35,28 +42,12 @@
     </div>
   </div>
   <div class="frame">
-    <center><%--@declare id="state_list"--%>
-
-
-        <input type="text" class="input"  list="cities" placeholder="Откуда" required max="64" id="from"
-               onkeyup="doCompletion(this.id);">
-
-  <datalist id="cities">
-  </datalist>
-   <input type="text" class="input" placeholder="Куда" required max="64" id="to" onkeyup="doCompletion(this.id);" list="cities">
-
-  <input type="date" class="input "id="date"><script>document.getElementById('date').valueAsDate = new Date();</script>
-  <input type="submit" class="button" value="Поиск" onClick="search_trips()">
-></center>
+    <center><%--@declare id="state_list"--%><input type="text" class="input" list="state_list" placeholder="Откуда" required max="64">
+      <input type="text" class="input" list="state_list" placeholder="Куда" required max="64">
+      <input type="date" class="input "id="davaToday"><script>document.getElementById('davaToday').valueAsDate = new Date();</script>
+      <input type="submit" class="button" value="Поиск"></center>
   </div>
-
-        <table id="complete-table" />
-      </td>
-    </tr>
-    </tbody>
-  </table>
-
-  <center><div class="wrapper" id="tripsTable">
+  <center><div class="wrapper">
     <div class="table">
       <div class="row_info">
         <div class="col date">

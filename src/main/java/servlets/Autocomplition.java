@@ -1,5 +1,6 @@
 package servlets;
 
+import Model.Entity.City;
 import Model.Hash.Composer;
 import Model.Hash.ComposerData;
 
@@ -22,7 +23,7 @@ public class Autocomplition extends HttpServlet {
 
     private ServletContext context;
     private ComposerData compData = new ComposerData();
-    private HashMap composers = compData.getComposers();
+    private HashMap cities = compData.getCities();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -47,34 +48,34 @@ public class Autocomplition extends HttpServlet {
             // check if user sent empty string
             if (!targetId.equals("")) {
 
-                Iterator it = composers.keySet().iterator();
+                Iterator it = cities.keySet().iterator();
 
                 while (it.hasNext()) {
-                    String id = (String) it.next();
-                    Composer composer = (Composer) composers.get(id);
+                    Integer id = (Integer) it.next();
+                    City city = (City) cities.get(id);
 
                     if ( // targetId matches first name
-                            composer.getFirstName().toLowerCase().startsWith(targetId) ||
+                            city.getName().toLowerCase().startsWith(targetId) //||
                                     // targetId matches last name
-                                    composer.getLastName().toLowerCase().startsWith(targetId) ||
+                                    //city.getLastName().toLowerCase().startsWith(targetId) ||
                                     // targetId matches full name
-                                    composer.getFirstName().toLowerCase().concat(" ")
-                                            .concat(composer.getLastName().toLowerCase()).startsWith(targetId)) {
+                                    /*city.getFirstName().toLowerCase().concat(" ")
+                                            .concat(city.getLastName().toLowerCase()).startsWith(targetId)*/) {
 
-                        sb.append("<composer>");
-                        sb.append("<id>" + composer.getId() + "</id>");
-                        sb.append("<firstName>" + composer.getFirstName() + "</firstName>");
-                        sb.append("<lastName>" + composer.getLastName() + "</lastName>");
-                        sb.append("</composer>");
+                        sb.append("<city>");
+                        sb.append("<id>" + city.getId() + "</id>");
+                        sb.append("<firstName>" + city.getName() + "</firstName>");
+                        //sb.append("<lastName>" + city.getLastName() + "</lastName>");
+                        sb.append("</city>");
                         namesAdded = true;
                     }
                 }
             }
-
+            sb.append("<action><name>autocomplete</name></action>");
             if (namesAdded) {
                 response.setContentType("text/xml");
                 response.setHeader("Cache-Control", "no-cache");
-                response.getWriter().write("<composers>" + sb.toString() + "</composers>");
+                response.getWriter().write("<cities>" + sb.toString() + "</cities>");
             } else {
                 //nothing to show
                 response.setStatus(HttpServletResponse.SC_NO_CONTENT);
@@ -83,9 +84,9 @@ public class Autocomplition extends HttpServlet {
         if (action.equals("lookup")) {
 
             // put the target composer in the request scope to display
-            if ((targetId != null) && composers.containsKey(targetId.trim())) {
-                request.setAttribute("composer", composers.get(targetId));
-                context.getRequestDispatcher("/composer.jsp").forward(request, response);
+            if ((targetId != null) && cities.containsKey(targetId.trim())) {
+                request.setAttribute("composer", cities.get(targetId));
+                context.getRequestDispatcher("Reservation.jsp").forward(request, response);
             }
         }
     }

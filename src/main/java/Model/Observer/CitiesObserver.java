@@ -14,12 +14,12 @@ public abstract class CitiesObserver {
     public static ArrayList<City> selectCities() {
         ArrayList<City> cities = new ArrayList<City>();
         ResultSet resultSet = null;
-        String query = "SELECT name FROM cities";
+        String query = "SELECT * FROM cities";
         DBWorker dbWorker = new DBWorker();
         resultSet = dbWorker.executeQuery(query);
         try {
             while (resultSet.next()) {
-                cities.add(new City(resultSet.getString("name")));
+                cities.add(new City(resultSet.getInt("id"), resultSet.getString("name")));
             }
         } catch (SQLException e) {
             e.printStackTrace();

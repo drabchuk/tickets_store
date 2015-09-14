@@ -20,10 +20,12 @@
         <tbody>
         <tr>
             <td><strong>Composer Name:</strong></td>
-            <td><input type="text"
+            <td><%--@declare id="datalist"--%><input type="text"
                        size="40"
                        id="complete-field"
-                       onkeyup="doCompletion();"></td>
+                       onkeyup="doCompletion();"
+                        list="datalist"></td>
+
         </tr>
         <tr>
             <td id="auto-row" colspan="2">

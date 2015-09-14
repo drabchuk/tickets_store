@@ -8,7 +8,14 @@ import java.util.ArrayList;
  * Created by Δενθρ on 12.09.2015.
  */
 public class City {
-    String name;
+    private String name;
+    private int id;
+
+    public City(int id, String name) {
+        this.id = id;
+        this.name = name;
+
+    }
 
     public City(String name) {
         this.name = name;
@@ -42,5 +49,9 @@ public class City {
     @Override
     public String toString() {
         return name;
+    }
+
+    public int getId() {
+        return id;
     }
 }

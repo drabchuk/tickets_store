@@ -4,24 +4,45 @@ package Model.Entity;
  * Created by Δενθρ on 12.09.2015.
  */
 public class Seat {
-    private Trip trip;
+    private int Id;
+    private int tripId;
     private int seat_num;
     private double price;
     private int availability;
 
-    public Seat(Trip trip, int seat_num, double price, int availability) {
-        this.trip = trip;
+    public Seat(int id, int tripId, int seat_num, double price, int availability) {
+        Id = id;
+        this.tripId = tripId;
         this.seat_num = seat_num;
         this.price = price;
         this.availability = availability;
     }
 
-    public Trip getTrip() {
-        return trip;
+    public int getId() {
+        return Id;
     }
 
-    public void setTrip(Trip trip) {
-        this.trip = trip;
+    public void setId(int id) {
+        Id = id;
+    }
+
+    public void setTripId(int tripId) {
+        this.tripId = tripId;
+    }
+
+    public Seat(int tripId, int seat_num, double price, int availability) {
+        this.tripId = tripId;
+        this.seat_num = seat_num;
+        this.price = price;
+        this.availability = availability;
+    }
+
+    public int getTripId() {
+        return tripId;
+    }
+
+    public void setTrip(int tripId) {
+        this.tripId = tripId;
     }
 
     public int getSeat_num() {
